@@ -1,0 +1,13 @@
+<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(0 -5)" filter="url(#a)" fill="none" fill-rule="evenodd">
+        <g transform="translate(0 5)" stroke="#3252BE" stroke-width="2">
+            <circle cx="9" cy="9" r="8"/>
+            <path d="M5.143 9.157 8.072 12l4.785-6"/>
+        </g>
+    </g>
+</svg>
