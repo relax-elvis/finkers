@@ -7084,6 +7084,10 @@ header .header-mobile .social li:last-child {
   }
 }
 
+.f_banner__slider {
+  overflow: hidden;
+}
+
 .f_banner__slider .row {
   display: -webkit-box !important;
   display: -webkit-flex !important;
@@ -7093,7 +7097,8 @@ header .header-mobile .social li:last-child {
 }
 
 .f_banner__slider .slick-dots {
-  bottom: 15px;
+  bottom: 0;
+  z-index: 10;
 }
 
 .f_banner__slider .slick-dots li {
@@ -7140,6 +7145,16 @@ header .header-mobile .social li:last-child {
 .f_banner__slider .slick-next {
   background: url("../img/sprite/icon-next.png") no-repeat center center;
   right: -68px;
+}
+
+.f_banner__slider .slick-list {
+  overflow: unset;
+}
+
+.f_banner__slider .right-image.bottom {
+  position: absolute;
+  right: 0;
+  bottom: -85px;
 }
 
 @media (max-width: 1520px) {
@@ -7201,6 +7216,9 @@ header .header-mobile .social li:last-child {
     position: absolute;
     right: -15px;
     z-index: 1;
+  }
+  .f_banner__slider .right-image.bottom {
+    right: -15px;
   }
   .f_banner__slider .right-image img {
     width: 100%;
@@ -11902,7 +11920,8 @@ body.not-found header:not(.fixed) .header-main {
     font-size: 11px;
   }
   .f_banner.home-page {
-    background-position: 100% -70px !important;
+    background-position: -webkit-calc(100% - 70px) !important;
+    background-position: calc(100% - 70px) !important;
     background-size: 180% !important;
   }
   .f_banner .sub-title {
@@ -11917,6 +11936,7 @@ body.not-found header:not(.fixed) .header-main {
   }
   .f_banner .max-width {
     max-width: 495px;
+    padding-top: 14vh;
   }
   .f_banner.blog .block-form .img-responsive {
     width: 100%;
@@ -12100,7 +12120,7 @@ body.not-found header:not(.fixed) .header-main {
     width: 170px;
   }
   .home-page .logotypes-and-text {
-    margin-bottom: 88px;
+    margin-bottom: 50px;
   }
   #calcula-tu-nueva-hipoteca header nav.menu .item,
   #mejora-tu-hipoteca header nav.menu .item {
@@ -12428,7 +12448,7 @@ body.not-found header:not(.fixed) .header-main {
     width: 100%;
     height: -webkit-calc(100% - 70px);
     height: calc(100% - 70px);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 0 0 174px 0;
     position: absolute;
     top: 0;
@@ -12485,7 +12505,7 @@ body.not-found header:not(.fixed) .header-main {
        text-overflow: ellipsis;
   }
   .f_banner .max-width {
-    max-width: 450px;
+    max-width: 485px;
     padding-top: 215px;
     padding-left: 88px;
   }

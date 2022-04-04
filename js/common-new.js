@@ -163,6 +163,7 @@ $(document).ready(function() {
 
 	// home-banner
 	$('.f_banner__slider .slick-slider').slick({
+		// autoplay: true,
 		items: 1,
 		dots: true,
 		infinite: true,
