@@ -6109,7 +6109,6 @@ footer .page-item {
   }
   .f_banner .max-width {
     max-width: 495px;
-    padding-top: 14vh;
   }
   .f_banner.blog .block-form .img-responsive {
     width: 100%;
@@ -6621,7 +6620,7 @@ footer .page-item {
     width: 100%;
     height: -webkit-calc(100% - 70px);
     height: calc(100% - 70px);
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 0 0 174px 0;
     position: absolute;
     top: 0;
@@ -6679,7 +6678,6 @@ footer .page-item {
   }
   .f_banner .max-width {
     max-width: 485px;
-    padding-top: 215px;
     padding-left: 88px;
   }
   .f_banner .sub-title {
@@ -8385,6 +8383,7 @@ footer .page-item {
   }
   .home-page .logotypes-and-text {
     padding-top: 0;
+    margin-bottom: 0;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
@@ -8573,6 +8572,35 @@ footer .page-item {
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
   }
+  .f_banner.home {
+    background: transparent !important;
+    border-radius: 0;
+  }
+  .f_banner.home::before {
+    content: '';
+    width: 100%;
+    height: -webkit-calc(100% - 37%);
+    height: calc(100% - 37%);
+    background: url(../img/banner/fondo.png) no-repeat 85% -70px/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;
+  }
+  .f_banner.home::after {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(55, 55, 55, 0.61)), color-stop(82%, #000));
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(55, 55, 55, 0.61) 50%, #000 82%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(55, 55, 55, 0.61) 50%, #000 82%);
+    border-radius: 0;
+    height: -webkit-calc(100% - 37%);
+    height: calc(100% - 37%);
+  }
+  .f_banner.home .block-form {
+    margin-top: 0;
+  }
   .f_banner.blog {
     padding-top: 145px;
     margin-bottom: 65px;
@@ -8625,7 +8653,6 @@ footer .page-item {
     display: none;
   }
   .f_banner .max-width {
-    padding-top: 170px;
     padding-left: 0;
     max-width: 100%;
   }
