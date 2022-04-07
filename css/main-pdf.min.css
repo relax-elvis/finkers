@@ -8579,8 +8579,8 @@ footer .page-item {
   .f_banner.home::before {
     content: '';
     width: 100%;
-    height: -webkit-calc(100% - 37%);
-    height: calc(100% - 37%);
+    height: -webkit-calc(100% - 38%);
+    height: calc(100% - 38%);
     background: url(../img/banner/fondo.png) no-repeat 85% -70px/cover;
     position: absolute;
     top: 0;
