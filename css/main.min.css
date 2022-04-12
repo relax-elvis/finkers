@@ -6541,6 +6541,14 @@ a.btn {
   background-position: -253px -280px;
 }
 
+.icon.icon-smile {
+  width: 76px;
+  height: 76px;
+  background-position: center center;
+  background-image: url("../img/icon/icon-smile.png");
+  background-size: 100%;
+}
+
 .icon.icon-check {
   width: 44px;
   height: 44px;
@@ -7420,6 +7428,10 @@ header .header-mobile .social li:last-child {
   letter-spacing: normal;
   display: block;
   margin-bottom: 8px;
+}
+
+.f_banner h1 + .block-btn {
+  margin-bottom: 5vh;
 }
 
 .f_banner .sub-title {
@@ -9092,6 +9104,10 @@ header .header-mobile .social li:last-child {
 
 .other.hipotecas .f_banner .slide {
   height: 80%;
+}
+
+.other.hipotecas1 .f_banner .slide {
+  height: 86%;
 }
 
 .other .f_banner {
@@ -12521,6 +12537,9 @@ body.not-found header:not(.fixed) .header-main {
     padding: 0;
     overflow-x: hidden;
   }
+  .f_banner.home .max-width {
+    padding-left: 88px;
+  }
   .f_banner.preguntas .max-width {
     max-width: 100%;
   }
@@ -12562,7 +12581,6 @@ body.not-found header:not(.fixed) .header-main {
   }
   .f_banner .max-width {
     max-width: 485px;
-    padding-left: 88px;
   }
   .f_banner .sub-title {
     font-size: 25px;
@@ -13156,6 +13174,12 @@ body.not-found header:not(.fixed) .header-main {
     width: -webkit-calc(50% - 30px);
     width: calc(50% - 30px);
   }
+  .hipotecas1 .f_banner.block-shadow .mobile-box-shadow {
+    height: 100%;
+  }
+  .hipotecas1 .f_banner .slide img {
+    height: 100%;
+  }
   .footer_main {
     padding-top: 115px;
     padding-bottom: 20px;
@@ -13405,6 +13429,10 @@ body.not-found header:not(.fixed) .header-main {
     width: 60px;
     height: 60px;
     background-position: -148px -229px;
+  }
+  .icon.icon-smile {
+    width: 60px;
+    height: 60px;
   }
   .icon.icon-check {
     width: 38px;
@@ -15098,7 +15126,7 @@ body.not-found header:not(.fixed) .header-main {
     z-index: 2;
   }
   .other .f_banner {
-    padding-bottom: 66px;
+    padding-bottom: 59px;
   }
   .other .f_information {
     padding-top: 76px;
@@ -15164,6 +15192,9 @@ body.not-found header:not(.fixed) .header-main {
   }
   .other .f_hipoteca .blog-list .blog-item.max-width-p p {
     margin-bottom: 0;
+  }
+  .hipotecas.hipotecas1 .f_hipoteca {
+    padding-top: 75px;
   }
   .hipotecas .f_banner {
     background: transparent;
@@ -15496,6 +15527,10 @@ body.not-found header:not(.fixed) .header-main {
     width: 52px;
     height: 52px;
     background-position: -311px -260px;
+  }
+  .icon.icon-smile {
+    width: 52px;
+    height: 52px;
   }
   .icon.icon-check {
     width: 44px;
