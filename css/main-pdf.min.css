@@ -5976,7 +5976,6 @@ footer .page-item {
 @media only screen and (min-width: 2400px) {
   .f_banner .block-form form {
     position: relative;
-    top: 25%;
   }
   .f_ayudamos-container::after {
     background: url(../img/ayudamos/foto-personas-cajas@2x.jpg) no-repeat center right/cover !important;
@@ -8091,8 +8090,12 @@ footer .page-item {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .f_banner.home h1 {
+    margin-bottom: 0.4vh;
+  }
   .f_banner .max-width {
     padding-left: 12px;
+    padding-top: 39px;
   }
   .form-steps__breadc {
     padding-left: 5px;
@@ -8204,8 +8207,8 @@ footer .page-item {
     padding-bottom: 15px;
   }
   a.btn {
-    padding-top: 13px;
-    padding-bottom: 14px;
+    padding: 13px 31px 14px;
+    font-size: 16px;
   }
   .title {
     font-size: 1.6875em;
@@ -8595,11 +8598,14 @@ footer .page-item {
     background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(55, 55, 55, 0.61) 50%, #000 82%);
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(55, 55, 55, 0.61) 50%, #000 82%);
     border-radius: 0;
-    height: -webkit-calc(100% - 37%);
-    height: calc(100% - 37%);
+    height: -webkit-calc(100% - 39.2%);
+    height: calc(100% - 39.2%);
   }
   .f_banner.home .block-form {
     margin-top: 0;
+  }
+  .f_banner.home .block-form form {
+    margin-top: 1px;
   }
   .f_banner.blog {
     padding-top: 145px;
@@ -8647,7 +8653,13 @@ footer .page-item {
   }
   .f_banner .sub-title {
     font-size: 22px;
-    min-height: 90px;
+    min-height: auto;
+  }
+  .f_banner .sub-title.home-page {
+    margin-bottom: 21px;
+  }
+  .f_banner .sub-title.home-page + .block-btn {
+    margin-bottom: 28px;
   }
   .f_banner .sub-title br {
     display: none;

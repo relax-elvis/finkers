@@ -7160,12 +7160,6 @@ header .header-mobile .social li:last-child {
   bottom: -45px;
 }
 
-@media (min-width: 1176px) {
-  .f_banner__slider .slick-slider .max-width {
-    min-height: 486px;
-  }
-}
-
 @media (max-width: 1520px) {
   .f_banner__slider .slick-prev {
     left: -45px;
@@ -7201,11 +7195,23 @@ header .header-mobile .social li:last-child {
   }
 }
 
+@media (min-width: 1176px) {
+  .f_banner__slider .slick-slider .max-width {
+    min-height: 486px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .f_banner__slider .slick-slider .max-width {
+    min-height: 480px;
+  }
+}
+
 @media (max-width: 991px) {
   .f_banner__slider {
     overflow: hidden;
     padding-top: 100px;
-    padding-bottom: 49px;
+    padding-bottom: 27px;
   }
   .f_banner__slider .slick-prev {
     left: 18px;
@@ -7214,7 +7220,7 @@ header .header-mobile .social li:last-child {
     right: 18px;
   }
   .f_banner__slider .slick-dots {
-    bottom: -25px;
+    bottom: -10px;
   }
   .f_banner__slider .slick-slide .row > div:first-child {
     position: relative;
@@ -7249,6 +7255,7 @@ header .header-mobile .social li:last-child {
 @media (max-width: 675px) {
   .f_banner__slider {
     padding-top: 80px;
+    padding-bottom: 50px;
   }
   .f_banner__slider .right-image {
     right: 0;
@@ -7256,6 +7263,7 @@ header .header-mobile .social li:last-child {
   }
   .f_banner__slider .right-image img {
     margin-right: auto !important;
+    max-width: 330px;
   }
   .f_banner__slider .slick-prev,
   .f_banner__slider .slick-next {
@@ -7263,6 +7271,23 @@ header .header-mobile .social li:last-child {
   }
   .f_banner__slider .slick-dots {
     bottom: -35px;
+  }
+}
+
+@media (max-width: 355px) {
+  .f_banner__slider .right-image {
+    right: -20px;
+    left: -20px;
+    bottom: -13px;
+    margin: 0 auto;
+  }
+  .f_banner__slider .right-image img {
+    margin-right: auto !important;
+    max-width: 420px;
+    width: -webkit-calc(100% + 35px);
+    width: calc(100% + 35px);
+    margin-left: -18px !important;
+    display: block;
   }
 }
 
@@ -7314,10 +7339,14 @@ header .header-mobile .social li:last-child {
 
 .f_banner.home {
   border-radius: 0 0 256px 0;
+  overflow: hidden;
 }
 
-.f_banner.home .container {
-  overflow: hidden;
+@media (min-width: 1640px) {
+  .f_banner.home {
+    background-position: 89% -webkit-calc(100% + -135px) !important;
+    background-position: 89% calc(100% + -135px) !important;
+  }
 }
 
 .f_banner.home .slide.mr-top img {
@@ -11833,7 +11862,6 @@ body.not-found header:not(.fixed) .header-main {
 @media only screen and (min-width: 2400px) {
   .f_banner .block-form form {
     position: relative;
-    top: 25%;
   }
   .f_ayudamos-container::after {
     background: url(../img/ayudamos/foto-personas-cajas@2x.jpg) no-repeat center right/cover !important;
@@ -13948,8 +13976,12 @@ body.not-found header:not(.fixed) .header-main {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .f_banner.home h1 {
+    margin-bottom: 0.4vh;
+  }
   .f_banner .max-width {
     padding-left: 12px;
+    padding-top: 39px;
   }
   .form-steps__breadc {
     padding-left: 5px;
@@ -14061,8 +14093,8 @@ body.not-found header:not(.fixed) .header-main {
     padding-bottom: 15px;
   }
   a.btn {
-    padding-top: 13px;
-    padding-bottom: 14px;
+    padding: 13px 31px 14px;
+    font-size: 16px;
   }
   .title {
     font-size: 1.6875em;
@@ -14452,11 +14484,14 @@ body.not-found header:not(.fixed) .header-main {
     background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(55, 55, 55, 0.61) 50%, #000 82%);
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(55, 55, 55, 0.61) 50%, #000 82%);
     border-radius: 0;
-    height: -webkit-calc(100% - 37%);
-    height: calc(100% - 37%);
+    height: -webkit-calc(100% - 39.2%);
+    height: calc(100% - 39.2%);
   }
   .f_banner.home .block-form {
     margin-top: 0;
+  }
+  .f_banner.home .block-form form {
+    margin-top: 1px;
   }
   .f_banner.blog {
     padding-top: 145px;
@@ -14504,7 +14539,13 @@ body.not-found header:not(.fixed) .header-main {
   }
   .f_banner .sub-title {
     font-size: 22px;
-    min-height: 90px;
+    min-height: auto;
+  }
+  .f_banner .sub-title.home-page {
+    margin-bottom: 21px;
+  }
+  .f_banner .sub-title.home-page + .block-btn {
+    margin-bottom: 28px;
   }
   .f_banner .sub-title br {
     display: none;
