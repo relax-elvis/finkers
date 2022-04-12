@@ -7156,9 +7156,14 @@ header .header-mobile .social li:last-child {
 }
 
 .f_banner__slider .right-image.bottom {
-  position: absolute;
-  right: 0;
-  bottom: -60px;
+  position: relative;
+  bottom: -45px;
+}
+
+@media (min-width: 1176px) {
+  .f_banner__slider .slick-slider .max-width {
+    min-height: 486px;
+  }
 }
 
 @media (max-width: 1520px) {
@@ -7209,7 +7214,7 @@ header .header-mobile .social li:last-child {
     right: 18px;
   }
   .f_banner__slider .slick-dots {
-    bottom: -60px;
+    bottom: -25px;
   }
   .f_banner__slider .slick-slide .row > div:first-child {
     position: relative;
@@ -7230,6 +7235,7 @@ header .header-mobile .social li:last-child {
     z-index: 1;
   }
   .f_banner__slider .right-image.bottom {
+    position: absolute;
     right: -15px;
     bottom: auto;
   }
