@@ -8122,7 +8122,7 @@ footer .page-item {
   .f_banner.home h1 {
     margin-bottom: 0.4vh;
   }
-  .f_banner .max-width {
+  .f_banner.home .max-width {
     padding-left: 12px;
     padding-top: 39px;
   }

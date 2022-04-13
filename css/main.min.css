@@ -5283,10 +5283,6 @@ form .select::after {
   padding: 14px 46px;
 }
 
-.home-page .logotypes-and-text {
-  margin-bottom: 5vh;
-}
-
 .home-page .logotypes-and-text .name {
   color: #ffffff;
   font-size: 10px;
@@ -7096,6 +7092,33 @@ header .header-mobile .social li:last-child {
   padding-top: 92px;
 }
 
+.f_banner__slider .slick-slider .max-width {
+  padding-top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.f_banner__slider .slick-slider .max-width h1 {
+  margin-bottom: 26px;
+}
+
+.f_banner__slider .slick-slider .max-width .sub-title.home-page {
+  min-height: auto;
+  height: auto;
+  margin-bottom: 35px;
+}
+
 .f_banner__slider .row {
   display: -webkit-box !important;
   display: -webkit-flex !important;
@@ -7458,7 +7481,7 @@ header .header-mobile .social li:last-child {
 }
 
 .f_banner .sub-title.home-page + .block-btn {
-  margin-bottom: 5vh;
+  margin-bottom: 40px;
 }
 
 .f_banner .block-form {
@@ -14027,7 +14050,7 @@ body.not-found header:not(.fixed) .header-main {
   .f_banner.home h1 {
     margin-bottom: 0.4vh;
   }
-  .f_banner .max-width {
+  .f_banner.home .max-width {
     padding-left: 12px;
     padding-top: 39px;
   }
