@@ -144,11 +144,6 @@ $(document).ready(function() {
 		var headerMainHeight = $('header .header-main').outerHeight();
 		$('#calcula-tu-nueva-hipoteca main').css('padding-top', headerTopHeight + headerMainHeight +'px');
 	}
-	if($('body').is('#mejora-tu-hipoteca')) {
-		var headerTopHeight = $('header .header-top').outerHeight();
-		var headerMainHeight = $('header .header-main').outerHeight();
-		$('#mejora-tu-hipoteca main').css('padding-top', headerTopHeight + headerMainHeight +'px');
-	}
 	var minHeight = $('.f_banner .slide img').height();
 	$('.f_banner').css('min-height', minHeight - 120 + 'px');
 	$('.tab-block .tab-block_item .item-title').on('click', function() {
@@ -160,28 +155,6 @@ $(document).ready(function() {
 			$(this).removeClass('active');
 		}
 	});
-
-	// home-banner
-	$('.f_banner__slider .slick-slider').slick({
-		// autoplay: true,
-		speed: 5000,
-		items: 1,
-		dots: true,
-		infinite: true,
-        speed: 500,
-        fade: !0,
-        cssEase: 'linear',
-	})
-	// end home-banner
-	// anchore link scroll-to
-	$('a.go-to').click(function() {
-		const _this = $(this).attr('href');
-		$('html, body').animate({
-			scrollTop: $(_this).offset().top + 'px'
-		}, 1000)
-	});
-	// /anchore link scroll-to
-
 	// scroll fixed header
 	// if($(this).scrollTop() > 23) {
 	// 	$('header').addClass("fixed");
@@ -275,7 +248,7 @@ $(document).ready(function() {
 					$('header').addClass("start");
 					$('header').removeClass('top-position');
 				}
-			   if ((scroll_top > last_scroll_top) && (scroll_top > top_display)) {
+			   if ((scroll_top > last_scroll_top) && (scroll_top >top_display)) {
 				   //downscroll code
 				   //$('header').addClass('fixed');
 					
@@ -325,131 +298,129 @@ $(document).ready(function() {
 	}
 
 	// .form-steps
-	$('.f_banner .block-form').eq(0).find('form').submit(function(e) {
-		e.preventDefault();
-	});
-	$('.f_banner .block-form').eq(0).find('form').validate({
-		rules: {
-			ingresos_mensuales: {
-				required: true,
-				digits: true
-			},
-			gastos_mensuales: {
-				required: true,
-				digits: true
-			},
-			years_user: {
-				required: true,
-			}
-		},
-		submitHandler: function() {
-			$('.f_banner .block-form').eq(0).fadeOut();
-			$('.f_banner .block-form').eq(1).fadeIn(300);
-		}
-	});
 	// global all step
-	// step question question_six
-	$('.form-steps-procents-interes .right .block-switcher input').change(function() {
-		var attr = $(this).attr('name');
-		if(attr == 'interes-procent') {
-			$('.form-steps-procents-interes .left .procents-interes').remove();
-			$('.form-steps-procents-interes .left').append('<span class="procents-interes w-100 d-flex align-items-center"><input type="number" min="1" max="100" value="1" name="procents-interes-variable" class="procents-interes-var">%</span>');
-		}
-	});
-	function inputRange() {
-	    var inputRagne = document.querySelectorAll('input[type=range]');
-	    var sum = document.querySelector('.range-sum');
-
-	    //let roots = document.querySelector('.block-form .form-block .form-body .range-line');
-
-	    inputRagne.forEach(function(item) {
-	        item.addEventListener('input', function(e) {
-	            var result = sum.getAttribute('data-range', e.target.name);
-	            var max = e.target.getAttribute('max');
-	            document.querySelector('.range-sum[data-range=' + e.target.name +'] span').textContent = e.target.value;
-
-	            var now = (e.target.value / max) * 100;
-
-	            $(e.target).parent().css('--background-line', now.toFixed() + "%");
-	            $(e.target).parent().css('--background-line-end', now.toFixed() + "%");
-	        });
-	        var max = $(item).attr('max');
-	        var now = ($(item).val() / max) * 100;
-	        $(item).parent().css('--background-line', now.toFixed() + "%");
-	        $(item).parent().css('--background-line-end', now.toFixed() + "%");
-	    });
-	}
-	jQuery.extend(jQuery.validator.messages, {
-		required: "Debes completar el campo",
-		remote: "Please fix this field.",
-		email: "Please enter a valid email address.",
-		url: "Please enter a valid URL.",
-		date: "Please enter a valid date.",
-		dateISO: "Please enter a valid date (ISO).",
-		number: "Please enter a valid number.",
-		digits: "Por favor introduzca solo dígitos",
-		creditcard: "Please enter a valid credit card number.",
-		equalTo: "Please enter the same value again.",
-		accept: "Please enter a value with a valid extension.",
-		maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
-		minlength: jQuery.validator.format("Please enter at least {0} characters."),
-		rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
-		range: jQuery.validator.format("Please enter a value between {0} and {1}."),
-		max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
-		min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
-	});
-	
 	$("form.form-steps").validate({
 		rules: {
-			coste_vivienda: {
+			cuesta_vivenda: {
+				required: true,
+				minlength: 2,
 				digits: true
 			},
-			aportacion: {
+			ahorros_compra: {
+				required: true,
+				minlength: 2,
 				digits: true
 			},
-			edad: {
+			tipo_interes: {
+				required: true
+			},
+			procentaje_interes: {
+				required: true,
 				digits: true
-			},	
-			sueldo: {
+			},
+			mercado_vivienda: {
+				required: true,
 				digits: true
-			},	
+			},
+			banco_financia_hipoteca: {
+				required: true,
+			},
+			que_provincia: {//select
+				required: true
+			},
+			que_municipio: {//select
+				required: true,
+			},
+			cuantos_edad: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
+			cuantos_situacion: {//select
+				required: true,
+			},
+			cuantos_laboral: {//select
+				required: true,
+			},
+			cuantos_sueldo: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
+			cuantos_donde: {//select
+				required: true
+			},
+			cuantos_edad1: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
+			cuantos_situacion1: {//select
+				required: true,
+			},
+			cuantos_laboral1: {//select
+				required: true,
+			},
+			cuantos_sueldo1: {//select
+				required: true,
+			},
+			cuantos_donde1: {//select
+				required: true,
+			},
+			cuantos_edad2: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
+			situacion_laboral: {
+				required: true,
+			},
+			cuantos_laboral2: {//select
+				required: true,
+			},
+			cuantos_sueldo2: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
+			cuantos_donde2: {//select
+				required: true,
+			},
+			capital_pendiente_one: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
+			cuota_mensual_one: {
+				required: true,
+				minlength: 2,
+				digits: true
+			},
 			capital_pendiente: {
+				required: true,
+				minlength: 2,
 				digits: true
-			},		
+			},
 			cuota_mensual: {
+				required: true,
+				minlength: 5,
 				digits: true
 			},
-			edad_1: {
+			capital_pendiente1: {
+				required: true,
+				minlength: 2,
 				digits: true
-			},	
-			sueldo_1: {
+			},
+			cuota_mensual1: {
+				required: true,
 				digits: true
-			},	
-			capital_pendiente_1: {
-				digits: true
-			},		
-			cuota_mensual_1: {
-				digits: true
-			},	
-			edad_2: {
-				digits: true
-			},	
-			sueldo_2: {
-				digits: true
-			},	
-			capital_pendiente_2: {
-				digits: true
-			},		
-			cuota_mensual_2: {
-				digits: true
-			},																	
-			firstname: {
+			},//form send
+			name: {
 				required: true,
 				minlength: 2
 			},
-			lastname: {
+			apellidos: {
 				required: true,
-				minlength: 2
 			},
 			email: {
 				required: true,
@@ -459,21 +430,23 @@ $(document).ready(function() {
 				required: true,
 				digits: true
 			},
-			horario_contacto: {
+			horario_contacto: {//select
 				required: true,
 			}
 		},
 		messages: {
-			firstname: "Por favor introduzca su nombre",
-			lastname: "Por favor introduzca su apelllido",
-			email: "Por favor introduzca un e-mail válido",
-			phone: "Por favor introduzca un teléfono válido",
-			horario_contacto: "Por favor introduzca un horario de contacto",
-			agree: "Por favor acepte la política de privacidad",
+			firstname: "Please enter your firstname",
+			email: "Please enter a valid email address",
+			agree: "Please accept our policy",
 		}
-	}); 
+	});
 	function stepsHead(step) {
-		
+		console.log('hl');
+		// if(step == 'two') {
+		// 	$('.form-steps .form-steps__head .head').removeClass('active').fadeOut(0);
+		// 	$('.form-steps .form-steps__head .head[data-step=one]').addClass('active').fadeIn(300);
+		// 	return;
+		// }
 		if($('.form-steps .form-steps__head .head[data-step='+ step +']').is('.active')) {
 			return;
 		}
@@ -499,9 +472,10 @@ $(document).ready(function() {
 		if(bool) {
 			$(".form-steps .question_one .block-image .description div").removeClass('active');
 			$(".form-steps .question_one .block-image .description div[data-tab-active="+ attr +"]").fadeIn(300).addClass('active');
-
+			console.log('true', bool);
 		} else {
 			$(".form-steps .question_one .block-image .description div").eq(0).addClass('active');
+			console.log('false', bool);
 		}
 	}
 	function activeBreadcStep(tag) {
@@ -535,7 +509,7 @@ $(document).ready(function() {
 			setTimeout(function() {
 				$(__this).trigger('blur', validStep(step));
 				$(__this).trigger('focus', validStep(step));
-				
+				console.log('change');
 			}, 100);
 		});
 	}
@@ -546,282 +520,8 @@ $(document).ready(function() {
 				$('.form-steps .question_'+ show).fadeIn(300).addClass('active');
 				// active next breadcrumb
 				activeBreadcStep(show);
-
-
-				if(show == 'five') { // MOSTRAR RESULTADOS.
-
-					// OCULTANDO CAMPOS
-
-		            //$('.form-steps__content .question_one .tab_content:not(.active)').remove();
-					$('.form-steps__content .question_two .tab_content > div:not(.active)').remove();
-
-					// Create our number formatter.
-					var formatter = new Intl.NumberFormat('es-ES', {
-					  style: 'currency',
-					  currency: 'EUR',
-
-					});
-
-
-
-					// RECOGIDA DE DATOS
-					
-		            var formData = $("#nueva-hipoteca-form").serialize();
-		           
-		            var data = { };
-
-		            $.each($('form').serializeArray(), function() {
-		                data[this.name] = this.value;
-		            });    
-
-
-		            // KILLER QUESTIONS
-
-		            var KQ = false;
-		            var reason = '';
-
-		            // La aportación debe de ser >= 10% del precio de compra.
-
-		            if(!KQ && data['aportacion'] != "" && data['coste_vivienda'] != ""){
-
-		            	if (data['aportacion'] < (data['coste_vivienda'] * 0.10)){
-
-		            		KQ = true;
-		            		reason = 'La aportación debe de ser mayor o igual al 10% del precio de compra.';
-		            	}
-
-		            }
-
-		           // Si los dos titutalers son temporales o desempleados no es viable.
-
-		            if(!KQ && data['situacion_laboral_1'] != "" && data['situacion_laboral_2'] != "" ){
-
-		            	if ( (data['situacion_laboral_1'] == 'temporal' || data['situacion_laboral_1'] == 'desempleado') && (data['situacion_laboral_2'] == 'temporal' || data['situacion_laboral_2'] == 'desempleado') ){
-
-		            		KQ = true;
-		            		reason = 'No es viable 1 .';
-
-		            	}
-
-		            }
-
-		            else if(!KQ && data['situacion_laboral'] != ""){
-
-		            	if( (data['situacion_laboral'] == 'temporal' || data['situacion_laboral'] == 'desempleado') ){
-
-		            		KQ = true;
-		            		reason = 'No es viable 2.';
-
-		            	}
-
-		            }
-
-		            // Si los ingresos són < que el 40% del endeudamiento una vez restados los préstamos, no es viable.
-
-		            if(!KQ){
-
-			            // TRAMO DE GASTOS
-
-			            var notorio, ITP, registro, gestoria, tasacion;
-
-			            if(data['coste_vivienda'] > 0 && data['coste_vivienda'] <= 100000){
-
-			            	notorio = 1000;
-			            	ITP = 0.10 * data['coste_vivienda'];
-			            	registro = 300;
-			            	gestoria = 300;
-			            	tasacion = 400;
-			            }
-
-			            else if(data['coste_vivienda'] > 100000 && data['coste_vivienda'] <= 200000 ){
-
-			            	notorio = 1200;
-			            	ITP = 0.10 * data['coste_vivienda'];
-			            	registro = 400;
-			            	gestoria = 300;
-			            	tasacion = 500;
-
-			            }
-
-			            else if(data['coste_vivienda'] > 200000 && data['coste_vivienda'] <= 400000 ){
-
-
-			            	notorio = 1300;
-			            	ITP = 0.10 * data['coste_vivienda'];
-			            	registro = 500;
-			            	gestoria = 300;
-			            	tasacion = 500;
-
-
-			            }
-
-			            else if(data['coste_vivienda'] > 400000 ){
-
-
-			            	notorio = 1400;
-			            	ITP = 0.10 * data['coste_vivienda'];
-			            	registro = 600;
-			            	gestoria = 300;
-			            	tasacion = 600;
-
-			            }
-
-			            var gastos = notorio + ITP + registro + gestoria + tasacion;
-
-			            // CALCULADORA
-
-			            var ingresos_mensuales,gastos_mensuales,years_user; 
-
-			            // Ingresos Mensuales del Usuario
-
-						if(data['sueldo_1'] != "" ) ingresos_mensuales = data['sueldo_1'] + data['sueldo_2'];
-
-						else if(data['sueldo'] != "") ingresos_mensuales = data['sueldo'];
-
-						// Gastos Mensuales del Usuario
-
-						if(data['cuota_mensual_1'] != "") gastos_mensuales = data['cuota_mensual_1'] + data['cuota_mensual_2'];
-
-						else if(data['cuota_mensual'] != "") gastos_mensuales = data['cuota_mensual'];
-
-						// Años que el Usuario ha dado por el ojal al mundo
-						
-						if(data['edad_1'] != "") years_user = Math.min(data['edad_1'], data['edad_2']);
-
-						else if(data['edad'] != "") years_user = data['edad'];          
-
-						var plazo_max = 75 - years_user;
-
-						if (plazo_max > 40) plazo_max = 40;
-						
-						var plazo_min = 9;
-
-						//var plazo = plazo_max; 
-
-						var plazo = 30;
-
-						var interes  = 0.01;
-
-						var periodicidad = 12;
-
-						var n_pagos = periodicidad*plazo;
-
-						var tasa = interes/periodicidad;
-
-						//var cuota_maxima = Math.round(calcular_cuota_mes(ingresos_mensuales,gastos_mensuales) * 100) / 100;
-						//var prestamo_maximo = Math.round(calcular_capital_maximo(cuota_maxima,tasa,n_pagos) * 100) / 100;
-
-						var prestamo_maximo = data['coste_vivienda'];
-
-						var couta_inicial = Math.round(calcular_cuota_maxima(tasa,n_pagos,prestamo_maximo) * 100) / 100;
-
-
-						// INTECTANDO DATOS.
-
-						$('.c-cuota').text(formatter.format(couta_inicial));
-						$('.c-interes').text("1");
-						$('.c-anos').text("30");
-						$('.c-hipoteca').text(formatter.format(data['coste_vivienda']));
-
-			            $('.c-gastos').text(formatter.format(gastos));
-			            $('.c-aportacion').text(formatter.format(data['aportacion']));
-
-			            $("[name='precio_compra']").attr("max",data['coste_vivienda']);
-			            $(".range-sum.pc").html('<span>'+data['coste_vivienda']+'</span>€');
-
-			            // MOSTRANDO PANTALLA
-			            
-		            	$('.reject-hipoteca').remove();
-		            	$('.question_six').fadeIn(300).addClass('active');
-		            	// form step six input range
-		            	inputRange();
-
-		            	// OPCION RECALCULAR 90%
-
-		            	$('#recalcular').click(function(){
-
-		            	// VARIABLE AUXILIAR
-	
-		            	var coste_vivienda = data['coste_vivienda'] * 0.90;
-		            	prestamo_maximo = coste_vivienda;
-
-		            	couta_inicial = Math.round(calcular_cuota_maxima(tasa,n_pagos,prestamo_maximo) * 100) / 100;
-
-						// INTECTANDO DATOS.
-
-						$('.c-cuota').text(formatter.format(couta_inicial));
-						$('.c-hipoteca').text(formatter.format(coste_vivienda));
-
-		            	});
-
-		            	// OPCION RECALCULAR 90%
-
-		            	$('#recalcular-all').click(function(){
-
-		  				
-
-		  				plazo = $("[name='plazo']").val();
-		  				n_pagos = periodicidad*plazo;
-
-		  				prestamo_maximo = $("[name='precio_compra']").val();
-		  				couta_inicial = Math.round(calcular_cuota_maxima(tasa,n_pagos,prestamo_maximo) * 100) / 100;
-
-		  				var aportacion = $("[name='r-aportacion']").val();
-
-						$('.c-cuota').text(formatter.format(couta_inicial));
-						$('.c-interes').text("1");
-						$('.c-anos').text(plazo);
-						$('.c-hipoteca').text(formatter.format(prestamo_maximo));
-			            $('.c-aportacion').text(formatter.format(aportacion));
-
-
-
-		            	});
-
-
-		            }
-		            else{
-
-		            	$('.form-steps__content .question_five .row > div:first-child').remove();
-		            	$('.form-steps__content .question .result-no').remove();
-		            	$('.reject-hipoteca').fadeIn(300).addClass('active');
-		            	$('.question_six').fadeIn(300).addClass('active');
-		            	// form step six input range
-		            	inputRange();
-
-		            }
-
-
-
-		            	
-		          
-		
-
-		            // REALIZANDO PETICIÓN
-
-		            /*$.ajax({
-		                type : 'POST',
-		                url : '/',
-		                data : formData,
-		                dataType : 'json',
-		                encode : true,
-		                success: function (data, status, xhr) {
-		                   //console.log('status: ' + status + ', data: ' + data);
-		                },
-		                error: function (jqXhr, textStatus, errorMessage) {
-		                    // console.log('Error' + errorMessage);
-		                    // console.log('Error' + JSON.stringify(jqXhr));
-		                    // console.log('Error' + errorMessage);
-		                }
-		            })
-		            .done(function(data) {
-
-						console.log(data);
-		    
-		            });
-					*/
-
-
+				if(show == 'five') {
+					$('.question_six').fadeIn(300).addClass('active');
 				}
 				if($(window).width() <= 575) {
 					if(show == 'four') {
@@ -838,40 +538,6 @@ $(document).ready(function() {
 			stepsHead(show);
 		});
 	}
-
-	// CALCULAR CUOTA MES
-
-	function calcular_cuota_mes(ingresos_mensuales,gastos_mensuales){
-
-	 
-		return (ingresos_mensuales-gastos_mensuales)*0.4;
-
-	}
-
-	// CALCULAR CAPITAL MÁXIMO
-
-
-	function calcular_capital_maximo(cuota_max,tasa,n_pagos){
-
-		var capital_max = cuota_max*(Math.pow((1+tasa),n_pagos)-1)/(tasa*Math.pow((1+tasa),n_pagos));
-
-		return capital_max;
-
-	}
-
-	// CALCULAR CUOTA MÁXIMA
-
-	function calcular_cuota_maxima(tasa,n_pagos,capital_inicial){
-
-
-		var cuota_max = tasa*Math.pow((1+tasa),n_pagos)*capital_inicial/(Math.pow((1+tasa),n_pagos)-1);
-
-		return cuota_max;
-
-
-	} 
-
-
 	function activeNextBtnPrevChoice(tag, fade, show) {
 		$('.form-steps .question_'+ tag + ' .next').click(function() {
 			if($(this).is('.activation')) {
@@ -910,23 +576,21 @@ $(document).ready(function() {
 		if($(this).is('.active')) return;
 		$(".form-steps .question_one .tab .item label").removeClass('active');
 		$(this).addClass('active');
+		if(attr == 'tengo-elegida') {
+			$(".form-steps .question_one div[data-tab-active="+ attr +"]").fadeIn(300).addClass('active');
+			// show image descr text
+			blockImageTextDescr(true, attr);
+		} else {
+			$(".form-steps .question_one div[data-tab-active=tengo-elegida]").fadeOut(0).removeClass('active');
+			$(".form-steps .question_one").fadeOut(0).removeClass('active');
+			$(".form-steps .question_two").fadeIn(300).addClass('active');
+			// show image descr text
+			blockImageTextDescr(false, attr);
+			// active next breadcrumb
+			activeBreadcStep('two');
 
-		// if(attr == 'tengo-elegida') {
-		// 	$(".form-steps .question_one div[data-tab-active="+ attr +"]").fadeIn(300).addClass('active');
-		// 	// show image descr text
-		// 	blockImageTextDescr(true, attr);
-		// } else {
-		// 	$(".form-steps .question_one div[data-tab-active=tengo-elegida]").fadeOut(0).removeClass('active');
-		// 	$(".form-steps .question_one").fadeOut(0).removeClass('active');
-		// 	$(".form-steps .question_two").fadeIn(300).addClass('active');
-		// 	// show image descr text
-		// 	blockImageTextDescr(false, attr);
-		// 	// active next breadcrumb
-		// 	activeBreadcStep('two');
-
-		// 	stepsHead('two');
-		// }
-		
+			stepsHead('two');
+		}
 	});
 	// fieldCheck action valid or error
 	checkField('.question_one');
@@ -991,26 +655,18 @@ $(document).ready(function() {
 				if(questionTwo == 2) {
 					var questionNo = $(this).parents('.titular-two').find('.tab .item button[data-action-titular=false].active').length;
 					if(questionNo == 2) {
-						//choiceNoReturnPrev('three', 'two');
-						activeNextBtn('three', 'three', 'four');
+						choiceNoReturnPrev('three', 'two');
 					}
 				} else {
-					//choiceNoReturnPrev('three', 'two');
-					$('.tab_content-next .block-btn .next').addClass('activation');
-					//activeNextBtn('three', 'three', 'four');
-					$('.tab_content-next .block-btn .next.activation').trigger('click');
+					choiceNoReturnPrev('three', 'two');
 				}
 			}
 			if($(this).attr('data-titular-block') == 'second') {
 				var questionNo = $(this).parents('.titular-two').find('.tab .item button[data-action-titular=false].active').length;
-				// if(questionNo == 2) {
-				// 	choiceNoReturnPrev('three', 'two');
-				// }
+				if(questionNo == 2) {
+					choiceNoReturnPrev('three', 'two');
+				}
 				secondTitular = $(this).parents('.content-titulars').find('.tab_content').clone(true, true);
-				///
-				$('.tab_content-next .block-btn .next').addClass('activation');
-				$('.tab_content-next .block-btn .next.activation').trigger('click');
-				activeNextBtn('three', 'three', 'four');
 				
 			}
 			$(this).parents('.content-titulars').find('.tab_content').remove();
@@ -1045,6 +701,4 @@ $(document).ready(function() {
 	activeNextBtn('four', 'four', 'five');
 	// /step four
 	// /.form-steps
-	// step question question_six
-	inputRange();
 });

@@ -7434,6 +7434,10 @@ header .header-mobile .social li:last-child {
   margin-bottom: 5vh;
 }
 
+.f_banner h1 + .block-btn .btn {
+  font-size: 16px;
+}
+
 .f_banner .sub-title {
   font-size: 1.56em;
   font-weight: 300;
@@ -11989,6 +11993,19 @@ body.not-found header:not(.fixed) .header-main {
   .blog-list.blue-blocks .blog-item {
     padding: 42px 33px 38px;
   }
+  .other.hipotecas1 .f_hipoteca .blog-list .blog-item {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .other.hipotecas1 .f_hipoteca .blog-list .blog-item h3 {
+    margin-bottom: 0;
+  }
+  .other.hipotecas1 .f_hipoteca .col-lg-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .f_banner {
     font-size: 11px;
   }
@@ -13173,6 +13190,10 @@ body.not-found header:not(.fixed) .header-main {
   .hipotecas .f_necesitas .list li {
     width: -webkit-calc(50% - 30px);
     width: calc(50% - 30px);
+  }
+  .other.hipotecas1 .f_hipoteca .col-lg-3 {
+    padding-left: 7px;
+    padding-right: 7px;
   }
   .hipotecas1 .f_banner.block-shadow .mobile-box-shadow {
     height: 100%;
